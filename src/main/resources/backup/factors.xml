@@ -1,0 +1,16 @@
+<factors>
+    <factor>Does the system require reliable backup and recovery?</factor>
+    <factor>Are data communications required?</factor>
+    <factor>Are there distributed processing functions?</factor>
+    <factor>Is performance critical?</factor>
+    <factor>Will the system run in a existing, heavily utilized operational environment?</factor>
+    <factor>Does the system require on-line data entry?</factor>
+    <factor>Does the on-line data entry require the input transaction to be built over multiple screens or operations?</factor>
+    <factor>Are the master files updated on-line?</factor>
+    <factor>Are the inputs, outputs, files or inquiries complex?</factor>
+    <factor>Is the internal processing complex?</factor>
+    <factor>Is the code designed to be reusable?</factor>
+    <factor>Are conversion and installation included in the design?</factor>
+    <factor>Is the system designed for multiple installations in different organizations?</factor>
+    <factor>Is the application designed to facilitate change and ease of use by the user?</factor>
+</factors>

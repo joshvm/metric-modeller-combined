@@ -1,0 +1,37 @@
+<metrics>
+    <metric name="inputs" title="User Inputs">
+        <weightings>
+            <weighting for="simple" level="3"/>
+            <weighting for="average" level="5"/>
+            <weighting for="complex" level="6"/>
+        </weightings>
+    </metric>
+    <metric name="outputs" title="User Outputs">
+        <weightings>
+            <weighting for="simple" level="4"/>
+            <weighting for="average" level="5"/>
+            <weighting for="complex" level="7"/>
+        </weightings>
+    </metric>
+    <metric name="inquiries" title="User Inquiries">
+        <weightings>
+            <weighting for="simple" level="3"/>
+            <weighting for="average" level="4"/>
+            <weighting for="complex" level="6"/>
+        </weightings>
+    </metric>
+    <metric name="files" title="Files">
+        <weightings>
+            <weighting for="simple" level="7"/>
+            <weighting for="average" level="10"/>
+            <weighting for="complex" level="15"/>
+        </weightings>
+    </metric>
+    <metric name="dependencies" title="External Interfaces">
+        <weightings>
+            <weighting for="simple" level="5"/>
+            <weighting for="average" level="7"/>
+            <weighting for="complex" level="10"/>
+        </weightings>
+    </metric>
+</metrics>

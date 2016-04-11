@@ -1,0 +1,5 @@
+<weightings>
+    <weighting name="simple" title="Simple"/>
+    <weighting name="average" title="Average"/>
+    <weighting name="complex" title="Complex"/>
+</weightings>
