@@ -27,7 +27,8 @@ public class Project {
                    final MetricMeasurements metricMeasurements,
                    final FactorRatings factorRatings,
                    final ExpertiseCounts expertiseCounts,
-                   final Team team,final DatabaseComplexity databaseComplexity){
+                   final DatabaseComplexity databaseComplexity,
+                   final Team team){
         this.id = new SimpleIntegerProperty(id);
         this.name = new SimpleStringProperty(name);
         this.languageUsages = languageUsages;
@@ -74,8 +75,8 @@ public class Project {
                 new MetricMeasurements(),
                 new FactorRatings(),
                 new ExpertiseCounts(),
-                new Team(false, Team.Coordination.MEDIUM, Team.Leadership.EXCEPTIONAL),
-                new DatabaseComplexity(DatabaseComplexity.DatabaseComplexityFactor.MIDWAY)
+                new DatabaseComplexity(DatabaseComplexity.DatabaseComplexityFactor.MIDWAY),
+                new Team(false, Team.Coordination.MEDIUM, Team.Leadership.EXCEPTIONAL)
                 );
     }
 
