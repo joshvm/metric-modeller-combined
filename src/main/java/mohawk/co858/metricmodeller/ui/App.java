@@ -1,5 +1,6 @@
 package mohawk.co858.metricmodeller.ui;
 
+import de.jensd.fx.glyphs.GlyphsDude;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.application.Application;
@@ -9,6 +10,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -21,6 +23,7 @@ import mohawk.co858.metricmodeller.core.lang.Languages;
 import mohawk.co858.metricmodeller.core.project.Project;
 import mohawk.co858.metricmodeller.core.weighting.Weightings;
 import mohawk.co858.metricmodeller.ui.project.ProjectsPane;
+import mohawk.co858.metricmodeller.ui.res.Res;
 
 public class App extends Application {
 
@@ -66,6 +69,7 @@ public class App extends Application {
         mainPane.setTop(new ToolBar());
         mainPane.setCenter(promptLabel);
 
+        stage.getIcons().addAll(Res.ICONS);
         stage.setScene(new Scene(mainPane, 935, 600));
         stage.setTitle("CO858 - Lying I's Metric Modeller");
         stage.centerOnScreen();
