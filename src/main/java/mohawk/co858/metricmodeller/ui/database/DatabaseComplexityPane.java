@@ -64,10 +64,10 @@ public class DatabaseComplexityPane extends BorderPane {
         fields.setHgap(5);
         fields.setVgap(5);
         fields.addRow(1, dbComplexityComboLabel, dbComplexityBox);
-        fields.add(new Separator(Orientation.HORIZONTAL), 0, 3, 2, 1);
+
         fields.addRow(11, databaseComplexitFactor, dbComplexityFactor);
 
-        final Label titleLabel = GlyphsDude.createIconLabel(FontAwesomeIcon.DATABASE, "Team", "32px", "24px", ContentDisplay.LEFT);
+        final Label titleLabel = GlyphsDude.createIconLabel(FontAwesomeIcon.DATABASE, "Database Size/Complexity", "32px", "24px", ContentDisplay.LEFT);
         titleLabel.setTextAlignment(TextAlignment.CENTER);
         titleLabel.setAlignment(Pos.CENTER);
 
