@@ -23,8 +23,8 @@ public class TeamFactorCalculator implements Calculator {
                     .mapToInt(e -> e.count().get())
                     .sum();
             final double linesOfCommunication = people * (people - 1) / 2;
-            final double functionPoints = Calculators.functionPoints().calculate(project);
-            teamFactor += ((linesOfCommunication * functionPoints * (.0005 / project.team().coordination().get().value())) / project.team().leadership().get().value());
+            final double fp = Calculators.adjustedFunctionPointCalculator().calculate(project);
+            teamFactor += linesOfCommunication * fp * (project.team().FIDDLE_FACTOR / (project.team().coordination().get().value() * project.team().leadership().get().value()));
         }
 
         return teamFactor;

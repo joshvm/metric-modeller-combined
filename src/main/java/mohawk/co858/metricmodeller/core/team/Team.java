@@ -4,6 +4,8 @@ import javafx.beans.property.SimpleObjectProperty;
 
 public class Team {
 
+    public static final double FIDDLE_FACTOR = .0005;
+
     public enum Coordination {
 
         NONE("None", 1),
@@ -37,10 +39,10 @@ public class Team {
 
     public enum Leadership {
 
-        POOR("Poor", .9),
-        AVERAGE("Average", 1),
-        STRONG("Strong", 1.2),
-        EXCEPTIONAL("Exceptional", 1.3);
+        POOR("Poor", 1),
+        AVERAGE("Average", 2),
+        STRONG("Strong", 3),
+        EXCEPTIONAL("Exceptional", 4);
 
         public static final Leadership[] VALUES = values();
 

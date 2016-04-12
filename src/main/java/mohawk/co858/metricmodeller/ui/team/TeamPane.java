@@ -13,15 +13,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import mohawk.co858.metricmodeller.core.calc.Calculators;
 import mohawk.co858.metricmodeller.core.project.Project;
 import mohawk.co858.metricmodeller.core.team.Team;
+import mohawk.co858.metricmodeller.ui.res.Res;
 
 public class TeamPane extends BorderPane {
 
@@ -72,7 +72,11 @@ public class TeamPane extends BorderPane {
         actionsPane.setSpacing(3);
         actionsPane.getChildren().addAll(enabledButton, clearButton);
 
+        final Font bigFont = Font.font("Verdana", FontWeight.NORMAL, 16);
+
         final Label coordinationLabel = new Label("Team Coordination:");
+        coordinationLabel.setFont(bigFont);
+        coordinationLabel.textAlignmentProperty().set(TextAlignment.RIGHT);
 
         coordinationBox = new ComboBox<>();
         coordinationBox.setDisable(!project.team().enabled().get());
@@ -84,6 +88,8 @@ public class TeamPane extends BorderPane {
         );
 
         final Label leadershipLabel = new Label("Leadership:");
+        leadershipLabel.setFont(bigFont);
+        leadershipLabel.textAlignmentProperty().set(TextAlignment.RIGHT);
 
         leadershipBox = new ComboBox<>();
         leadershipBox.setDisable(!project.team().enabled().get());
@@ -94,10 +100,11 @@ public class TeamPane extends BorderPane {
                 (ob, o, n) -> update()
         );
 
-        final Font bigFont = Font.font("Verdana", FontWeight.NORMAL, 20);
+
 
         final Label locLabel = new Label("Lines Of Communication");
         locLabel.setFont(bigFont);
+
 
         locBox = new TextField("0");
         locBox.setFont(bigFont);
@@ -106,18 +113,47 @@ public class TeamPane extends BorderPane {
         final Label teamFactorLabel = new Label("Team Factor");
         teamFactorLabel.setFont(bigFont);
 
+
+
         teamFactorBox = new TextField("0");
         teamFactorBox.setFont(bigFont);
         teamFactorBox.setEditable(false);
 
+        ImageView pic1 = new ImageView(Res.Formulas[0]);
+        ImageView pic2 = new ImageView(Res.Formulas[1]);
+
+
+
+        final HBox hbox1 = new HBox();
+        hbox1.setPadding(new Insets(5, 0, 5, 0));
+        hbox1.getChildren().add(locLabel);
+        hbox1.getChildren().add(pic1);
+        hbox1.getChildren().add(locBox);
+        hbox1.setAlignment(Pos.CENTER_LEFT);
+        hbox1.spacingProperty().set(5);
+
+
+        final HBox hbox2 = new HBox();
+        hbox2.setPadding(new Insets(5, 0, 5, 0));
+        hbox2.getChildren().add(teamFactorLabel);
+        hbox2.getChildren().add(pic2);
+        hbox2.getChildren().add(teamFactorBox);
+        hbox2.setAlignment(Pos.CENTER_LEFT);
+        hbox2.spacingProperty().set(5);
+
+
         final GridPane fields = new GridPane();
+        fields.setMinWidth(800D);
         fields.setHgap(5);
         fields.setVgap(5);
         fields.addRow(1, coordinationLabel, coordinationBox);
         fields.addRow(2, leadershipLabel, leadershipBox);
         fields.add(new Separator(Orientation.HORIZONTAL), 0, 3, 2, 1);
-        fields.addRow(4, locLabel, locBox);
-        fields.addRow(5, teamFactorLabel, teamFactorBox);
+        fields.add(hbox1, 0, 5, 5, 1);
+        fields.add(hbox2, 0, 7, 5, 1);
+
+
+
 
         final Label titleLabel = GlyphsDude.createIconLabel(FontAwesomeIcon.USERS, "Team", "32px", "24px", ContentDisplay.LEFT);
         titleLabel.setTextAlignment(TextAlignment.CENTER);
@@ -142,9 +178,7 @@ public class TeamPane extends BorderPane {
                     .sum();
             final double linesOfCommunication = people * (people - 1) / 2;
             locBox.setText(NumberFormat.getInstance().format(linesOfCommunication));
-            final double functionPoints = Calculators.functionPoints().calculate(project);
-            final double teamFactor = 1 + ((linesOfCommunication * functionPoints * (.0005 / project.team().coordination().get().value())) / project.team().leadership().get().value());
-            teamFactorBox.setText(String.format("%1.3f", teamFactor));
+            teamFactorBox.setText(String.format("%1.3f", Calculators.teamFactorCalculator().calculate(project)));
         }else{
             locBox.setText("0");
             teamFactorBox.setText("0");

@@ -10,5 +10,10 @@ public final class Res {
             new Image(Res.class.getResourceAsStream("icon_32.png"))
     };
 
+    public static final Image[] Formulas = {
+            new Image(Res.class.getResourceAsStream("commlines.gif")),
+            new Image(Res.class.getResourceAsStream("teamfactor.gif"))
+    };
+
     private Res(){}
 }
