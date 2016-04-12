@@ -119,8 +119,8 @@ public class TeamPane extends BorderPane {
         teamFactorBox.setFont(bigFont);
         teamFactorBox.setEditable(false);
 
-        ImageView pic1 = new ImageView(Res.Formulas[0]);
-        ImageView pic2 = new ImageView(Res.Formulas[1]);
+        ImageView pic1 = new ImageView(Res.FORMULAS[0]);
+        ImageView pic2 = new ImageView(Res.FORMULAS[1]);
 
 
 
