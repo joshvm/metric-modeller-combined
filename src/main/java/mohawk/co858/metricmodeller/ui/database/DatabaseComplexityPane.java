@@ -30,12 +30,15 @@ public class DatabaseComplexityPane extends BorderPane {
     public DatabaseComplexityPane(final Project project) {
         this.project = project;
 
+        final Font bigFont = Font.font("Verdana", FontWeight.NORMAL, 20);
+
         final HBox actionsPane = new HBox();
         setMargin(actionsPane, new Insets(5, 0, 5, 0));
         actionsPane.setAlignment(Pos.CENTER);
         actionsPane.setSpacing(3);
 
-        final Label coordinationLabel = new Label("DatabaseComplexityFactor");
+        final Label dbComplexityComboLabel = new Label("Database Complexity Factor");
+        dbComplexityComboLabel.setFont(bigFont);
 
         dbComplexityBox = new ComboBox<>();
         dbComplexityBox.getItems().addAll(DatabaseComplexity.DatabaseComplexityFactor.VALUES);
@@ -47,7 +50,7 @@ public class DatabaseComplexityPane extends BorderPane {
         dbComplexityBox.setDisable(false);
 
 
-        final Font bigFont = Font.font("Verdana", FontWeight.NORMAL, 20);
+
 
         final Label databaseComplexitFactor = new Label("Database Complexity Factor");
         databaseComplexitFactor.setFont(bigFont);
@@ -60,7 +63,7 @@ public class DatabaseComplexityPane extends BorderPane {
         final GridPane fields = new GridPane();
         fields.setHgap(5);
         fields.setVgap(5);
-        fields.addRow(1, coordinationLabel, dbComplexityBox);
+        fields.addRow(1, dbComplexityComboLabel, dbComplexityBox);
         fields.add(new Separator(Orientation.HORIZONTAL), 0, 3, 2, 1);
         fields.addRow(11, databaseComplexitFactor, dbComplexityFactor);
 
