@@ -35,7 +35,7 @@ public class LanguageUsages {
                 return false;
             if(this == o)
                 return true;
-            final Entry e = (Entry)o;
+            final Entry e = (Entry) o;
             return language.get().equals(e.language.get())
                     && usage.get().equals(e.usage.get());
         }

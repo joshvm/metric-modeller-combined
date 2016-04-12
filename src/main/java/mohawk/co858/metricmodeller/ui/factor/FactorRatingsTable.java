@@ -45,7 +45,7 @@ public class FactorRatingsTable extends BorderPane {
 
         factorColumn = new TableColumn<>("Factor");
         factorColumn.setCellValueFactory(c -> c.getValue().factor());
-        factorColumn.setCellFactory(c -> new TableCell<FactorRatings.Entry, Factor>(){
+        factorColumn.setCellFactory(c -> new TableCell<FactorRatings.Entry, Factor>() {
             @Override
             protected void updateItem(final Factor factor, final boolean empty){
                 super.updateItem(factor, empty);
@@ -69,7 +69,7 @@ public class FactorRatingsTable extends BorderPane {
         ratingColumn.setMinWidth(200);
         ratingColumn.setEditable(true);
         ratingColumn.setCellValueFactory(c -> c.getValue().rating());
-        ratingColumn.setCellFactory(c -> new ComboBoxTableCell<FactorRatings.Entry, Rating>(){
+        ratingColumn.setCellFactory(c -> new ComboBoxTableCell<FactorRatings.Entry, Rating>() {
 
             {
                 getItems().addAll(Rating.VALUES);

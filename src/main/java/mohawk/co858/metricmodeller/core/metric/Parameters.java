@@ -12,7 +12,8 @@ public final class Parameters {
 
     private static final Map<Object, Parameter> MAP = new LinkedHashMap<>();
 
-    private Parameters(){}
+    private Parameters(){
+    }
 
     public static Parameter forIdOrName(final Object idOrName){
         return MAP.get(idOrName);
@@ -26,7 +27,7 @@ public final class Parameters {
         MAP.clear();
     }
 
-    public static void load() {
+    public static void load(){
         for(final Parameter parameter : Database.metrics().all()){
             for(final Weighting weighting : Weightings.values())
                 parameter.weight(weighting, Database.metrics().weightingLevel(parameter.id(), weighting.id()));

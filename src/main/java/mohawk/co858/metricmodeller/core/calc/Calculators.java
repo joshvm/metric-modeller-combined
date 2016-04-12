@@ -2,14 +2,17 @@ package mohawk.co858.metricmodeller.core.calc;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import mohawk.co858.metricmodeller.core.calc.impl.*;
+import mohawk.co858.metricmodeller.core.calc.impl.CostCalculator;
+import mohawk.co858.metricmodeller.core.calc.impl.EffortCalculator;
+import mohawk.co858.metricmodeller.core.calc.impl.FunctionPointCalculator;
+import mohawk.co858.metricmodeller.core.calc.impl.SourceLinesOfCodeCalculator;
+import mohawk.co858.metricmodeller.core.calc.impl.TimeCalculator;
 
 public final class Calculators {
 
     private static final Map<OutputParam, Calculator> MAP = new HashMap<>();
 
-    static {
+    static{
         add(new FunctionPointCalculator());
         add(new CostCalculator());
         add(new EffortCalculator());
@@ -17,7 +20,8 @@ public final class Calculators {
         add(new TimeCalculator());
     }
 
-    private Calculators(){}
+    private Calculators(){
+    }
 
     public static void add(final Calculator calc){
         MAP.put(calc.outputParam(), calc);

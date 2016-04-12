@@ -63,7 +63,9 @@ public class Project {
         return expertiseCounts;
     }
 
-    public DatabaseComplexity dbComplexity() {return databaseComplexity;}
+    public DatabaseComplexity dbComplexity(){
+        return databaseComplexity;
+    }
 
     public Team team(){
         return team;
@@ -77,7 +79,7 @@ public class Project {
                 new ExpertiseCounts(),
                 new DatabaseComplexity(DatabaseComplexity.DatabaseComplexityFactor.MIDWAY),
                 new Team(false, Team.Coordination.MEDIUM, Team.Leadership.EXCEPTIONAL)
-                );
+        );
     }
 
     public static Project create(final String name){

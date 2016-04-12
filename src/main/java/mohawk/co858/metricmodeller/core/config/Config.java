@@ -15,12 +15,13 @@ public final class Config {
 
     private static final String DB_PATH_KEY = "db.path";
 
-    private Config(){}
+    private Config(){
+    }
 
     public static String get(final String key){
         return PROPS.getProperty(key);
     }
-    
+
     private static Path path(final String key){
         return Paths.get(get(key));
     }

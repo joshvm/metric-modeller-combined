@@ -10,7 +10,8 @@ public final class Languages {
 
     private static final Map<Object, Language> MAP = new LinkedHashMap<>();
 
-    private Languages(){}
+    private Languages(){
+    }
 
     public static Collection<Language> values(){
         return MAP.values().stream().distinct().collect(Collectors.toList());

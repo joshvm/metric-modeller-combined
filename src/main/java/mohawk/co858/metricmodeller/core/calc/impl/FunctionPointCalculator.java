@@ -17,7 +17,7 @@ public class FunctionPointCalculator implements Calculator {
         System.out.println("UFP: " + ufp);
         final double tdi = tdi(project);
         System.out.println("TDI: " + tdi);
-        final double vaf = vaf(project,tdi);
+        final double vaf = vaf(project, tdi);
         System.out.println("VAF: " + vaf);
         final double efp = ufp * vaf;
         System.out.println("EFP: " + efp);

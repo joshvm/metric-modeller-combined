@@ -8,13 +8,14 @@ public final class Factors {
 
     private static final List<Factor> LIST = new ArrayList<>();
 
-    private Factors(){}
+    private Factors(){
+    }
 
     public static List<Factor> values(){
         return LIST;
     }
 
-    public static void load() {
+    public static void load(){
         Database.factors().all().forEach(LIST::add);
     }
 }

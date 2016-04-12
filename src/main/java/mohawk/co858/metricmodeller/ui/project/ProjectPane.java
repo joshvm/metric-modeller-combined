@@ -63,7 +63,7 @@ public class ProjectPane extends BorderPane {
 
         final Tab databaseTab = new Tab();
         databaseTab.setContent(databaseSizePane);
-        databaseTab.setGraphic(GlyphsDude.createIconLabel(FontAwesomeIcon.DATABASE, "Database Size", "24px","16px", ContentDisplay.LEFT));
+        databaseTab.setGraphic(GlyphsDude.createIconLabel(FontAwesomeIcon.DATABASE, "Database Size", "24px", "16px", ContentDisplay.LEFT));
 
         final Tab peopleTab = new Tab();
         peopleTab.setContent(expertiseCountsTable);

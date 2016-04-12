@@ -45,7 +45,7 @@ public class ExpertiseCountsTable extends BorderPane {
 
         levelColumn = new TableColumn<>("Expertise Level");
         levelColumn.setCellValueFactory(c -> c.getValue().level());
-        levelColumn.setCellFactory(c -> new TableCell<Expertise, Expertise.Level>(){
+        levelColumn.setCellFactory(c -> new TableCell<Expertise, Expertise.Level>() {
             @Override
             protected void updateItem(final Expertise.Level level, final boolean empty){
                 super.updateItem(level, empty);
@@ -66,7 +66,7 @@ public class ExpertiseCountsTable extends BorderPane {
         costColumn = new TableColumn<>("Cost");
         costColumn.setEditable(true);
         costColumn.setCellValueFactory(c -> c.getValue().cost());
-        costColumn.setCellFactory(c -> new TextFieldTableCell<Expertise, Double>(){
+        costColumn.setCellFactory(c -> new TextFieldTableCell<Expertise, Double>() {
 
             {
                 setConverter(new DoubleStringConverter() {
@@ -105,7 +105,7 @@ public class ExpertiseCountsTable extends BorderPane {
         countColumn = new TableColumn<>("Count");
         countColumn.setEditable(true);
         countColumn.setCellValueFactory(c -> c.getValue().count());
-        countColumn.setCellFactory(c -> new TextFieldTableCell<Expertise, Integer>(){
+        countColumn.setCellFactory(c -> new TextFieldTableCell<Expertise, Integer>() {
 
             {
                 setConverter(new IntegerStringConverter() {

@@ -74,7 +74,7 @@ public class LanguageUsagesTable extends BorderPane {
 
         langColumn = new TableColumn<>("Language");
         langColumn.setCellValueFactory(p -> p.getValue().language());
-        langColumn.setCellFactory(p -> new TableCell<LanguageUsages.Entry, Language>(){
+        langColumn.setCellFactory(p -> new TableCell<LanguageUsages.Entry, Language>() {
             @Override
             protected void updateItem(final Language lang, final boolean empty){
                 super.updateItem(lang, empty);
@@ -97,7 +97,7 @@ public class LanguageUsagesTable extends BorderPane {
         usageColumn = new TableColumn<>("Usage");
         usageColumn.setEditable(true);
         usageColumn.setCellValueFactory(p -> p.getValue().usage());
-        usageColumn.setCellFactory(p -> new ComboBoxTableCell<LanguageUsages.Entry, Usage>(Usage.VALUES){
+        usageColumn.setCellFactory(p -> new ComboBoxTableCell<LanguageUsages.Entry, Usage>(Usage.VALUES) {
             @Override
             public void updateItem(final Usage item, final boolean empty){
                 super.updateItem(item, empty);

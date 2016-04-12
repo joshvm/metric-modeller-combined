@@ -7,7 +7,8 @@ public final class Utils {
         void run() throws Exception;
     }
 
-    private Utils(){}
+    private Utils(){
+    }
 
     public static boolean tryRun(final Task task){
         try{

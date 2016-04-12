@@ -81,7 +81,7 @@ public class MetricMeasurementsTable extends BorderPane {
 
         titleColumn = new TableColumn<>("Title");
         titleColumn.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().metric().title()));
-        titleColumn.setCellFactory(c -> new TableCell<MetricMeasurements.Entry, String>(){
+        titleColumn.setCellFactory(c -> new TableCell<MetricMeasurements.Entry, String>() {
             @Override
             protected void updateItem(final String title, final boolean empty){
                 super.updateItem(title, empty);
@@ -101,7 +101,7 @@ public class MetricMeasurementsTable extends BorderPane {
 
         countColumn = new TableColumn<>("Count");
         countColumn.setCellValueFactory(c -> c.getValue().count());
-        countColumn.setCellFactory(c -> new TextFieldTableCell<MetricMeasurements.Entry, Integer>(){
+        countColumn.setCellFactory(c -> new TextFieldTableCell<MetricMeasurements.Entry, Integer>() {
 
             {
                 setConverter(new IntegerStringConverter() {
@@ -137,7 +137,7 @@ public class MetricMeasurementsTable extends BorderPane {
         weightingColumn = new TableColumn<>("Weighting");
         weightingColumn.setEditable(true);
         weightingColumn.setCellValueFactory(c -> c.getValue().weighting());
-        weightingColumn.setCellFactory(c -> new ComboBoxTableCell<MetricMeasurements.Entry, Weighting>(){
+        weightingColumn.setCellFactory(c -> new ComboBoxTableCell<MetricMeasurements.Entry, Weighting>() {
 
             {
                 getItems().addAll(Weightings.values());

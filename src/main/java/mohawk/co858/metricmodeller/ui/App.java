@@ -33,7 +33,7 @@ public class App extends Application {
     private static Label promptLabel;
 
     @Override
-    public void start(final Stage stage) throws Exception {
+    public void start(final Stage stage) throws Exception{
         Config.init();
         Database.init();
         Languages.load();

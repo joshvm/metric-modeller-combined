@@ -20,9 +20,10 @@ public final class Database {
 
     private static ProjectHistoryDao projectHistory;
 
-    private Database(){}
+    private Database(){
+    }
 
-    public static void init() {
+    public static void init(){
         final SQLiteConnectionPoolDataSource ds = new SQLiteConnectionPoolDataSource();
         ds.setUrl(Config.dbPath());
         dbi = new DBI(ds);

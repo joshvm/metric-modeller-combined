@@ -43,7 +43,7 @@ public class OutputPane extends BorderPane {
 
         outputColumn = new TableColumn<>("Output");
         outputColumn.setCellValueFactory(c -> c.getValue().output);
-        outputColumn.setCellFactory(c -> new TableCell<Entry, OutputParam>(){
+        outputColumn.setCellFactory(c -> new TableCell<Entry, OutputParam>() {
             @Override
             protected void updateItem(final OutputParam output, final boolean empty){
                 super.updateItem(output, empty);
@@ -63,7 +63,7 @@ public class OutputPane extends BorderPane {
 
         valueColumn = new TableColumn<>("Value");
         valueColumn.setCellValueFactory(c -> c.getValue().value);
-        valueColumn.setCellFactory(c -> new TableCell<Entry, Double>(){
+        valueColumn.setCellFactory(c -> new TableCell<Entry, Double>() {
             @Override
             protected void updateItem(final Double value, final boolean empty){
                 super.updateItem(value, empty);

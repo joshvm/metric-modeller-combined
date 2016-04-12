@@ -68,7 +68,7 @@ public class LanguageUsageSelectionDialog extends Dialog<LanguageUsages.Entry> {
 
         list = new ListView<>(model);
         BorderPane.setMargin(list, new Insets(5, 0, 5, 0));
-        list.setCellFactory(callback -> new ListCell<Language>(){
+        list.setCellFactory(callback -> new ListCell<Language>() {
             @Override
             protected void updateItem(final Language lang, final boolean empty){
                 super.updateItem(lang, empty);

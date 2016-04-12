@@ -11,17 +11,17 @@ public enum OutputParam {
     TIME("Duration", NumberFormat.getInstance(), "%s Months");
 
     public static final OutputParam[] VALUES = values();
-    
+
     private final String title;
     private final NumberFormat numberFormat;
     private final String format;
-    
+
     OutputParam(final String title, final NumberFormat numberFormat, final String format){
         this.title = title;
         this.numberFormat = numberFormat;
         this.format = format;
     }
-    
+
     public String title(){
         return title;
     }

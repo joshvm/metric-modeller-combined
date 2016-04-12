@@ -10,7 +10,8 @@ public final class Weightings {
 
     private static final Map<Object, Weighting> MAP = new HashMap<>();
 
-    private Weightings(){}
+    private Weightings(){
+    }
 
     public static Weighting forIdOrName(final Object idOrName){
         return MAP.get(idOrName);

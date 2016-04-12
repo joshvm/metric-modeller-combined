@@ -15,8 +15,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.TextAlignment;
-import mohawk.co858.metricmodeller.core.metric.Parameter;
 import mohawk.co858.metricmodeller.core.metric.MetricMeasurements;
+import mohawk.co858.metricmodeller.core.metric.Parameter;
 import mohawk.co858.metricmodeller.core.metric.Parameters;
 import mohawk.co858.metricmodeller.core.project.Project;
 import mohawk.co858.metricmodeller.core.weighting.Weighting;
@@ -42,7 +42,7 @@ public class MetricMeasurementSelectionDialog extends Dialog<MetricMeasurements.
         list.getItems().addAll(Parameters.values());
         project.metricMeasurements().keys().forEach(list.getItems()::remove);
         BorderPane.setMargin(list, new Insets(5, 0, 5, 0));
-        list.setCellFactory(callback -> new ListCell<Parameter>(){
+        list.setCellFactory(callback -> new ListCell<Parameter>() {
             @Override
             protected void updateItem(final Parameter parameter, final boolean empty){
                 super.updateItem(parameter, empty);

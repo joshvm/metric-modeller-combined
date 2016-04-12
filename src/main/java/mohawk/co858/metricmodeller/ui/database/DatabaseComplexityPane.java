@@ -3,21 +3,19 @@ package mohawk.co858.metricmodeller.ui.database;
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
-import mohawk.co858.metricmodeller.core.calc.Calculators;
 import mohawk.co858.metricmodeller.core.database.DatabaseComplexity;
 import mohawk.co858.metricmodeller.core.project.Project;
-import mohawk.co858.metricmodeller.core.team.Team;
-
-import java.text.NumberFormat;
 
 public class DatabaseComplexityPane extends BorderPane {
 
@@ -27,7 +25,7 @@ public class DatabaseComplexityPane extends BorderPane {
 
     private final TextField dbComplexityFactor;
 
-    public DatabaseComplexityPane(final Project project) {
+    public DatabaseComplexityPane(final Project project){
         this.project = project;
 
         final Font bigFont = Font.font("Verdana", FontWeight.NORMAL, 20);
@@ -48,8 +46,6 @@ public class DatabaseComplexityPane extends BorderPane {
                 (ob, o, n) -> update()
         );
         dbComplexityBox.setDisable(false);
-
-
 
 
         final Label databaseComplexitFactor = new Label("Database Complexity Factor:");
@@ -83,7 +79,7 @@ public class DatabaseComplexityPane extends BorderPane {
 
     }
 
-    public void update() {
+    public void update(){
         double dataBaseFactor = project.dbComplexity().dbComplexityFactor().getValue().value();
         dbComplexityFactor.setText(String.format("%1.1f", dataBaseFactor));
     }
