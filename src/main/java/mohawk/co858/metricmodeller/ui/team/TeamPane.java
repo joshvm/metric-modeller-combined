@@ -63,7 +63,7 @@ public class TeamPane extends BorderPane {
         clearButton = GlyphsDude.createIconButton(FontAwesomeIcon.TRASH, "Clear", "24px", "16px", ContentDisplay.LEFT);
         clearButton.setOnAction(e -> {
             coordinationBox.getSelectionModel().select(Team.Coordination.MEDIUM);
-            leadershipBox.getSelectionModel().select(Team.Leadership.EXCEPTIONAL);
+            leadershipBox.getSelectionModel().select(Team.Leadership.AVERAGE);
         });
 
         final HBox actionsPane = new HBox();
@@ -72,7 +72,7 @@ public class TeamPane extends BorderPane {
         actionsPane.setSpacing(3);
         actionsPane.getChildren().addAll(enabledButton, clearButton);
 
-        final Label coordinationLabel = new Label("Coordination");
+        final Label coordinationLabel = new Label("DatabaseComplexityFactor");
 
         coordinationBox = new ComboBox<>();
         coordinationBox.setDisable(!project.team().enabled().get());
@@ -130,6 +130,9 @@ public class TeamPane extends BorderPane {
 
         setTop(top);
         setCenter(fields);
+
+        coordinationBox.getSelectionModel().select(Team.Coordination.MEDIUM);
+        leadershipBox.getSelectionModel().select(Team.Leadership.AVERAGE);
     }
 
     public void update(){
@@ -137,11 +140,11 @@ public class TeamPane extends BorderPane {
             final int people = project.expertiseCounts().values().stream()
                     .mapToInt(e -> e.count().get())
                     .sum();
-            final double loc = people * (people - 1) / 2;
-            locBox.setText(NumberFormat.getInstance().format(loc));
-            final double fp = Calculators.functionPoints().calculate(project);
-            final double teamFactor = 1 + ((loc * fp * (.0001 / project.team().coordination().get().value())) / project.team().leadership().get().value());
-            teamFactorBox.setText(String.format("%1.2f", teamFactor));
+            final double linesOfCommunication = people * (people - 1) / 2;
+            locBox.setText(NumberFormat.getInstance().format(linesOfCommunication));
+            final double functionPoints = Calculators.functionPoints().calculate(project);
+            final double teamFactor = 1 + ((linesOfCommunication * functionPoints * (.0005 / project.team().coordination().get().value())) / project.team().leadership().get().value());
+            teamFactorBox.setText(String.format("%1.3f", teamFactor));
         }else{
             locBox.setText("0");
             teamFactorBox.setText("0");

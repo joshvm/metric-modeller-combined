@@ -13,7 +13,7 @@ public class ProjectHistoryMapper implements ResultSetMapper<ProjectHistory> {
         return new ProjectHistory(
                 rs.getInt("id"),
                 rs.getInt("ActualEffort"),
-                rs.getInt("EstimatedFP")
+                rs.getInt("ActualLOC")
         );
     }
 }

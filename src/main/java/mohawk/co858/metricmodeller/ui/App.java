@@ -18,7 +18,6 @@ import mohawk.co858.metricmodeller.core.config.Config;
 import mohawk.co858.metricmodeller.core.db.Database;
 import mohawk.co858.metricmodeller.core.factor.Factors;
 import mohawk.co858.metricmodeller.core.lang.Languages;
-import mohawk.co858.metricmodeller.core.metric.Metrics;
 import mohawk.co858.metricmodeller.core.project.Project;
 import mohawk.co858.metricmodeller.core.weighting.Weightings;
 import mohawk.co858.metricmodeller.ui.project.ProjectsPane;
@@ -39,7 +38,7 @@ public class App extends Application {
         Database.init();
         Languages.load();
         Weightings.load();
-        Metrics.load();
+        mohawk.co858.metricmodeller.core.metric.Parameters.load();
         Factors.load();
 
         setUserAgentStylesheet(STYLESHEET_CASPIAN);

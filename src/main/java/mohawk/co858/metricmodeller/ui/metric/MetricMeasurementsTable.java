@@ -172,7 +172,7 @@ public class MetricMeasurementsTable extends BorderPane {
                 (ListChangeListener<MetricMeasurements.Entry>) c -> clearButton.setDisable(table.getItems().isEmpty())
         );
 
-        final Label titleLabel = GlyphsDude.createIconLabel(FontAwesomeIcon.BAR_CHART, "Metrics", "32px", "24px", ContentDisplay.LEFT);
+        final Label titleLabel = GlyphsDude.createIconLabel(FontAwesomeIcon.BAR_CHART, "Parameters", "32px", "24px", ContentDisplay.LEFT);
         titleLabel.setTextAlignment(TextAlignment.CENTER);
         titleLabel.setAlignment(Pos.CENTER);
 

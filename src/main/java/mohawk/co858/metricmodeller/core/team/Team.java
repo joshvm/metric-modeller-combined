@@ -38,9 +38,9 @@ public class Team {
     public enum Leadership {
 
         POOR("Poor", .9),
-        AVERAGE("Average", .95),
-        STRONG("Strong", .98),
-        EXCEPTIONAL("Exceptional", 1);
+        AVERAGE("Average", 1),
+        STRONG("Strong", 1.2),
+        EXCEPTIONAL("Exceptional", 1.3);
 
         public static final Leadership[] VALUES = values();
 

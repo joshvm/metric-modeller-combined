@@ -2,11 +2,8 @@ package mohawk.co858.metricmodeller.core.calc;
 
 import java.util.HashMap;
 import java.util.Map;
-import mohawk.co858.metricmodeller.core.calc.impl.CostCalculator;
-import mohawk.co858.metricmodeller.core.calc.impl.EffortCalculator;
-import mohawk.co858.metricmodeller.core.calc.impl.FunctionPointCalculator;
-import mohawk.co858.metricmodeller.core.calc.impl.SourceLinesOfCodeCalculator;
-import mohawk.co858.metricmodeller.core.calc.impl.TimeCalculator;
+
+import mohawk.co858.metricmodeller.core.calc.impl.*;
 
 public final class Calculators {
 

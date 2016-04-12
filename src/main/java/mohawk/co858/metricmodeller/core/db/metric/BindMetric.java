@@ -5,7 +5,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import mohawk.co858.metricmodeller.core.metric.Metric;
+import mohawk.co858.metricmodeller.core.metric.Parameter;
 import org.skife.jdbi.v2.sqlobject.Binder;
 import org.skife.jdbi.v2.sqlobject.BinderFactory;
 import org.skife.jdbi.v2.sqlobject.BindingAnnotation;
@@ -18,7 +18,7 @@ public @interface BindMetric {
     class MyBinderFactory implements BinderFactory {
 
         @Override
-        public Binder<BindMetric, Metric> build(final Annotation annotation){
+        public Binder<BindMetric, Parameter> build(final Annotation annotation){
             return (q, bind, metric) -> {
                 q.bind("id", metric.id());
                 q.bind("name", metric.name());

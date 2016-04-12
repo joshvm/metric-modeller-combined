@@ -4,12 +4,12 @@ public class ProjectHistory {
 
     private final int id;
     private final double actualEffort;
-    private final double functionPoints;
+    private final double sourceLinesOfCode;
 
-    public ProjectHistory(final int id, final double actualEffort, final double functionPoints){
+    public ProjectHistory(final int id, final double actualEffort, final double sourceLinesOfCode){
         this.id = id;
         this.actualEffort = actualEffort;
-        this.functionPoints = functionPoints;
+        this.sourceLinesOfCode = sourceLinesOfCode;
     }
 
     public int id(){
@@ -20,7 +20,7 @@ public class ProjectHistory {
         return actualEffort;
     }
 
-    public double estimatedFunctionPoints(){
-        return functionPoints;
+    public double sourceLinesOfCode(){
+        return sourceLinesOfCode;
     }
 }

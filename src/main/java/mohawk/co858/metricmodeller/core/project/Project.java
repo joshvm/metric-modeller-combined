@@ -2,6 +2,7 @@ package mohawk.co858.metricmodeller.core.project;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import mohawk.co858.metricmodeller.core.database.DatabaseComplexity;
 import mohawk.co858.metricmodeller.core.expertise.ExpertiseCounts;
 import mohawk.co858.metricmodeller.core.factor.FactorRatings;
 import mohawk.co858.metricmodeller.core.lang.LanguageUsages;
@@ -18,6 +19,7 @@ public class Project {
     private final MetricMeasurements metricMeasurements;
     private final FactorRatings factorRatings;
     private final ExpertiseCounts expertiseCounts;
+    private final DatabaseComplexity databaseComplexity;
     private final Team team;
 
     public Project(final int id, final String name,
@@ -25,13 +27,14 @@ public class Project {
                    final MetricMeasurements metricMeasurements,
                    final FactorRatings factorRatings,
                    final ExpertiseCounts expertiseCounts,
-                   final Team team){
+                   final Team team,final DatabaseComplexity databaseComplexity){
         this.id = new SimpleIntegerProperty(id);
         this.name = new SimpleStringProperty(name);
         this.languageUsages = languageUsages;
         this.metricMeasurements = metricMeasurements;
         this.factorRatings = factorRatings;
         this.expertiseCounts = expertiseCounts;
+        this.databaseComplexity = databaseComplexity;
         this.team = team;
     }
 
@@ -59,6 +62,8 @@ public class Project {
         return expertiseCounts;
     }
 
+    public DatabaseComplexity dbComplexity() {return databaseComplexity;}
+
     public Team team(){
         return team;
     }
@@ -69,7 +74,8 @@ public class Project {
                 new MetricMeasurements(),
                 new FactorRatings(),
                 new ExpertiseCounts(),
-                new Team(false, Team.Coordination.MEDIUM, Team.Leadership.EXCEPTIONAL)
+                new Team(false, Team.Coordination.MEDIUM, Team.Leadership.EXCEPTIONAL),
+                new DatabaseComplexity(DatabaseComplexity.DatabaseComplexityFactor.MIDWAY)
                 );
     }
 

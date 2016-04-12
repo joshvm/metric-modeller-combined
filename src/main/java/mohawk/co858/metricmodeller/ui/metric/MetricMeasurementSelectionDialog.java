@@ -15,9 +15,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.TextAlignment;
-import mohawk.co858.metricmodeller.core.metric.Metric;
+import mohawk.co858.metricmodeller.core.metric.Parameter;
 import mohawk.co858.metricmodeller.core.metric.MetricMeasurements;
-import mohawk.co858.metricmodeller.core.metric.Metrics;
+import mohawk.co858.metricmodeller.core.metric.Parameters;
 import mohawk.co858.metricmodeller.core.project.Project;
 import mohawk.co858.metricmodeller.core.weighting.Weighting;
 import mohawk.co858.metricmodeller.core.weighting.Weightings;
@@ -26,7 +26,7 @@ public class MetricMeasurementSelectionDialog extends Dialog<MetricMeasurements.
 
     private final Project project;
 
-    private ListView<Metric> list;
+    private ListView<Parameter> list;
 
     private TextField titleBox;
     private TextField countBox;
@@ -39,20 +39,20 @@ public class MetricMeasurementSelectionDialog extends Dialog<MetricMeasurements.
         this.project = project;
 
         list = new ListView<>();
-        list.getItems().addAll(Metrics.values());
+        list.getItems().addAll(Parameters.values());
         project.metricMeasurements().keys().forEach(list.getItems()::remove);
         BorderPane.setMargin(list, new Insets(5, 0, 5, 0));
-        list.setCellFactory(callback -> new ListCell<Metric>(){
+        list.setCellFactory(callback -> new ListCell<Parameter>(){
             @Override
-            protected void updateItem(final Metric metric, final boolean empty){
-                super.updateItem(metric, empty);
+            protected void updateItem(final Parameter parameter, final boolean empty){
+                super.updateItem(parameter, empty);
 
-                if(metric == null){
+                if(parameter == null){
                     setText(null);
                     return;
                 }
 
-                setText(metric.title());
+                setText(parameter.title());
             }
         });
         list.getSelectionModel().selectedItemProperty().addListener(
@@ -65,7 +65,7 @@ public class MetricMeasurementSelectionDialog extends Dialog<MetricMeasurements.
                 }
         );
 
-        final Label titleLabel = new Label("Metric:");
+        final Label titleLabel = new Label("Parameter:");
         titleLabel.setAlignment(Pos.CENTER_RIGHT);
         titleLabel.setTextAlignment(TextAlignment.RIGHT);
 
@@ -101,14 +101,14 @@ public class MetricMeasurementSelectionDialog extends Dialog<MetricMeasurements.
 
         cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-        setTitle("Metric Picker");
-        setHeaderText("Select a Metric");
+        setTitle("Parameter Picker");
+        setHeaderText("Select a Parameter");
         setGraphic(GlyphsDude.createIcon(FontAwesomeIcon.BAR_CHART, "32px"));
         setResultConverter(callback -> {
             if(callback.getButtonData() != ButtonBar.ButtonData.OK_DONE)
                 return null;
-            final Metric metric = list.getSelectionModel().getSelectedItem();
-            if(metric == null)
+            final Parameter parameter = list.getSelectionModel().getSelectedItem();
+            if(parameter == null)
                 return null;
             final String countText = countBox.getText().trim();
             if(!countText.matches("\\d{1,8}"))
@@ -117,7 +117,7 @@ public class MetricMeasurementSelectionDialog extends Dialog<MetricMeasurements.
             final Weighting weighting = weightingBox.getValue();
             if(weighting == null)
                 return null;
-            return new MetricMeasurements.Entry(metric, count, weighting);
+            return new MetricMeasurements.Entry(parameter, count, weighting);
         });
 
         getDialogPane().setContent(content);

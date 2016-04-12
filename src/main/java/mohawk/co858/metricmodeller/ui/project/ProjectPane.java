@@ -9,6 +9,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import mohawk.co858.metricmodeller.core.project.Project;
+import mohawk.co858.metricmodeller.ui.database.DatabaseComplexityPane;
 import mohawk.co858.metricmodeller.ui.expertise.ExpertiseCountsTable;
 import mohawk.co858.metricmodeller.ui.factor.FactorRatingsTable;
 import mohawk.co858.metricmodeller.ui.lang.LanguageUsagesTable;
@@ -23,6 +24,7 @@ public class ProjectPane extends BorderPane {
     private final LanguageUsagesTable languageUsagesTable;
     private final MetricMeasurementsTable metricMeasurementsTable;
     private final FactorRatingsTable factorRatingsTable;
+    private final DatabaseComplexityPane databaseSizePane;
     private final ExpertiseCountsTable expertiseCountsTable;
     private final TeamPane teamPane;
     private final OutputPane outputPane;
@@ -38,6 +40,8 @@ public class ProjectPane extends BorderPane {
 
         factorRatingsTable = new FactorRatingsTable(project);
 
+        databaseSizePane = new DatabaseComplexityPane(project);
+
         expertiseCountsTable = new ExpertiseCountsTable(project);
 
         teamPane = new TeamPane(project);
@@ -51,11 +55,15 @@ public class ProjectPane extends BorderPane {
 
         final Tab metricsTab = new Tab();
         metricsTab.setContent(metricMeasurementsTable);
-        metricsTab.setGraphic(GlyphsDude.createIconLabel(FontAwesomeIcon.BAR_CHART, "Metrics", "24px", "16px", ContentDisplay.LEFT));
+        metricsTab.setGraphic(GlyphsDude.createIconLabel(FontAwesomeIcon.BAR_CHART, "Parameters", "24px", "16px", ContentDisplay.LEFT));
 
         final Tab factorsTab = new Tab();
         factorsTab.setContent(factorRatingsTable);
         factorsTab.setGraphic(GlyphsDude.createIconLabel(FontAwesomeIcon.QUESTION, "Factors", "24px", "16px", ContentDisplay.LEFT));
+
+        final Tab databaseTab = new Tab();
+        databaseTab.setContent(databaseSizePane);
+        databaseTab.setGraphic(GlyphsDude.createIconLabel(FontAwesomeIcon.DATABASE, "Database Size", "24px","16px", ContentDisplay.LEFT));
 
         final Tab peopleTab = new Tab();
         peopleTab.setContent(expertiseCountsTable);
@@ -69,7 +77,7 @@ public class ProjectPane extends BorderPane {
         outputTab.setContent(outputPane);
         outputTab.setGraphic(GlyphsDude.createIconLabel(FontAwesomeIcon.CALCULATOR, "Output", "24px", "16px", ContentDisplay.LEFT));
 
-        final TabPane tabs = new TabPane(languagesTab, metricsTab, factorsTab, peopleTab, teamTab, outputTab);
+        final TabPane tabs = new TabPane(languagesTab, metricsTab, factorsTab, databaseTab, peopleTab, teamTab, outputTab);
         tabs.setSide(Side.BOTTOM);
         tabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
         tabs.getSelectionModel().selectedItemProperty().addListener(

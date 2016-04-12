@@ -17,6 +17,6 @@ public class TimeCalculator implements Calculator {
         final double effort = Calculators.effort().calculate(project);
         final double people = project.expertiseCounts().peopleCount() > 0 ?
                 project.expertiseCounts().peopleCount() : 1;
-        return effort / people;
+        return effort / people; // total project length in months
     }
 }

@@ -4,11 +4,11 @@ import java.text.NumberFormat;
 
 public enum OutputParam {
 
-    FUNCTION_POINTS("Function Points", NumberFormat.getInstance(), "%s"),
-    EFFORT("Effort", NumberFormat.getInstance(), "%s Person Days"),
+    FUNCTION_POINTS("Function Points", NumberFormat.getIntegerInstance(), "%s"),
+    EFFORT("Effort", NumberFormat.getInstance(), "%s Person Months"),
     COST("Cost", NumberFormat.getCurrencyInstance(), "%s"),
-    SOURCE_LINES_OF_CODE("Source Lines Of Code", NumberFormat.getInstance(), "%s Lines"),
-    TIME("Time", NumberFormat.getInstance(), "%s Days");
+    SOURCE_LINES_OF_CODE("Source Lines Of Code", NumberFormat.getIntegerInstance(), "%s Lines"),
+    TIME("Duration", NumberFormat.getInstance(), "%s Months");
 
     public static final OutputParam[] VALUES = values();
     

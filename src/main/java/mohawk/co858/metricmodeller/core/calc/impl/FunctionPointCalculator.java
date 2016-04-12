@@ -17,7 +17,7 @@ public class FunctionPointCalculator implements Calculator {
         System.out.println("UFP: " + ufp);
         final double tdi = tdi(project);
         System.out.println("TDI: " + tdi);
-        final double vaf = vaf(tdi);
+        final double vaf = vaf(project,tdi);
         System.out.println("VAF: " + vaf);
         final double efp = ufp * vaf;
         System.out.println("EFP: " + efp);
@@ -38,8 +38,8 @@ public class FunctionPointCalculator implements Calculator {
                 .sum();
     }
 
-    public double vaf(final double tdi){
-        return (tdi * 0.01) + 0.65;
+    public double vaf(final Project project, final double tdi){
+        return ((tdi * 0.01) + 0.65) * project.dbComplexity().dbComplexityFactor().getValue().value();
     }
 
 }
