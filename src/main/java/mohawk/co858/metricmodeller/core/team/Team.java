@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleObjectProperty;
 
 public class Team {
 
-    public static final double FIDDLE_FACTOR = .0005;
+    public static final double FIDDLE_FACTOR = .001;
 
     public enum Coordination {
 
