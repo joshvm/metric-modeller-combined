@@ -37,7 +37,7 @@ public class DatabaseComplexityPane extends BorderPane {
         actionsPane.setAlignment(Pos.CENTER);
         actionsPane.setSpacing(3);
 
-        final Label dbComplexityComboLabel = new Label("Database Complexity Factor");
+        final Label dbComplexityComboLabel = new Label("Select database complexity/size:");
         dbComplexityComboLabel.setFont(bigFont);
 
         dbComplexityBox = new ComboBox<>();
@@ -52,7 +52,7 @@ public class DatabaseComplexityPane extends BorderPane {
 
 
 
-        final Label databaseComplexitFactor = new Label("Database Complexity Factor");
+        final Label databaseComplexitFactor = new Label("Database Complexity Factor:");
         databaseComplexitFactor.setFont(bigFont);
 
         dbComplexityFactor = new TextField("1");
