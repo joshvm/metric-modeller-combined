@@ -75,7 +75,7 @@ public class DatabaseComplexityPane extends BorderPane {
         setTop(top);
         setCenter(fields);
 
-        dbComplexityBox.getSelectionModel().select(DatabaseComplexity.DatabaseComplexityFactor.MIDWAY);
+        dbComplexityBox.getSelectionModel().select(DatabaseComplexity.DatabaseComplexityFactor.MIDDLE);
 
     }
 

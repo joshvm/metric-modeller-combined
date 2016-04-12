@@ -19,8 +19,8 @@ public class CostCalculator implements Calculator {
                 .mapToDouble(e -> e.cost().get() * e.count().get() * 8D * 22D) // 8 hours per day, 22 working days per month
                 .sum();
 
-        final double averageCostPerPerson = totalCostPerMonth / peopleCount;        // average $/month for resources
-        final double effort = Calculators.effort().calculate(project);               // effort in person months
-        return effort * averageCostPerPerson;                                        // total project cost
+        final double averageCostPerPerson = totalCostPerMonth / peopleCount;              // average $/month for resources
+        final double effort = Calculators.adjustedEffortCalculator().calculate(project);  // effort in person months
+        return effort * averageCostPerPerson;                                             // total project cost
     }
 }

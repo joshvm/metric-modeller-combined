@@ -39,7 +39,7 @@ public class FunctionPointCalculator implements Calculator {
     }
 
     public double vaf(final Project project, final double tdi){
-        return ((tdi * 0.01) + 0.65) * project.dbComplexity().dbComplexityFactor().getValue().value();
+        return ((tdi * 0.01) + 0.65);
     }
 
 }

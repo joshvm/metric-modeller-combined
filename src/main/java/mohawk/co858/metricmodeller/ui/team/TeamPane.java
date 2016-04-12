@@ -72,7 +72,7 @@ public class TeamPane extends BorderPane {
         actionsPane.setSpacing(3);
         actionsPane.getChildren().addAll(enabledButton, clearButton);
 
-        final Label coordinationLabel = new Label("DatabaseComplexityFactor");
+        final Label coordinationLabel = new Label("Team Coordination:");
 
         coordinationBox = new ComboBox<>();
         coordinationBox.setDisable(!project.team().enabled().get());
@@ -83,7 +83,7 @@ public class TeamPane extends BorderPane {
                 (ob, o, n) -> update()
         );
 
-        final Label leadershipLabel = new Label("Leadership");
+        final Label leadershipLabel = new Label("Leadership:");
 
         leadershipBox = new ComboBox<>();
         leadershipBox.setDisable(!project.team().enabled().get());

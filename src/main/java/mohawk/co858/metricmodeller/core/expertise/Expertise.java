@@ -6,10 +6,10 @@ public class Expertise {
 
     public enum Level {
 
-        TRAINEE("Trainee", 30, 1.2),
-        AMATEUR("Amateur", 50, 1.1),
+        TRAINEE("Trainee", 30, 1.5),
+        AMATEUR("Amateur", 50, 1.3),
         AVERAGE("Average", 80, 1),
-        PROFESSIONAL("Professional", 100, .9);
+        PROFESSIONAL("Professional", 100, .8);
 
         public static final Level[] VALUES = values();
 

@@ -2,8 +2,10 @@ package mohawk.co858.metricmodeller.ui.output;
 
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+
 import java.util.HashMap;
 import java.util.Map;
+
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -25,7 +27,7 @@ public class OutputPane extends BorderPane {
         private final SimpleObjectProperty<OutputParam> output;
         private final SimpleObjectProperty<Double> value;
 
-        private Entry(final OutputParam output, final double value){
+        private Entry(final OutputParam output, final double value) {
             this.output = new SimpleObjectProperty<>(output);
             this.value = new SimpleObjectProperty<>(value);
         }
@@ -38,17 +40,17 @@ public class OutputPane extends BorderPane {
     private final Map<OutputParam, Entry> model;
     private final TableView<Entry> table;
 
-    public OutputPane(final Project project){
+    public OutputPane(final Project project) {
         this.project = project;
 
         outputColumn = new TableColumn<>("Output");
         outputColumn.setCellValueFactory(c -> c.getValue().output);
         outputColumn.setCellFactory(c -> new TableCell<Entry, OutputParam>() {
             @Override
-            protected void updateItem(final OutputParam output, final boolean empty){
+            protected void updateItem(final OutputParam output, final boolean empty) {
                 super.updateItem(output, empty);
 
-                if(output == null){
+                if (output == null) {
                     setText(null);
                     setTextAlignment(null);
                     setAlignment(null);
@@ -65,10 +67,10 @@ public class OutputPane extends BorderPane {
         valueColumn.setCellValueFactory(c -> c.getValue().value);
         valueColumn.setCellFactory(c -> new TableCell<Entry, Double>() {
             @Override
-            protected void updateItem(final Double value, final boolean empty){
+            protected void updateItem(final Double value, final boolean empty) {
                 super.updateItem(value, empty);
 
-                if(value == null){
+                if (value == null) {
                     setText(null);
                     setTextAlignment(null);
                     setAlignment(null);
@@ -91,7 +93,7 @@ public class OutputPane extends BorderPane {
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         table.getColumns().addAll(outputColumn, valueColumn);
 
-        for(final OutputParam output : OutputParam.VALUES){
+        for (final OutputParam output : OutputParam.VALUES) {
             final Entry e = new Entry(output, 0);
             model.put(output, e);
             table.getItems().add(e);
@@ -109,8 +111,12 @@ public class OutputPane extends BorderPane {
         setCenter(table);
     }
 
-    public void update(){
-        for(final OutputParam output : OutputParam.VALUES)
-            model.get(output).value.set(Calculators.forOutput(output).calculate(project));
+    public void update() {
+        for (final OutputParam output : OutputParam.VALUES) {
+            OutputParam x = output;
+            if (output != null) {
+                model.get(output).value.set(Calculators.forOutput(output).calculate(project));
+            }
+        }
     }
 }

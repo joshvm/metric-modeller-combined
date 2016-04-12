@@ -77,7 +77,7 @@ public class Project {
                 new MetricMeasurements(),
                 new FactorRatings(),
                 new ExpertiseCounts(),
-                new DatabaseComplexity(DatabaseComplexity.DatabaseComplexityFactor.MIDWAY),
+                new DatabaseComplexity(DatabaseComplexity.DatabaseComplexityFactor.MIDDLE),
                 new Team(false, Team.Coordination.MEDIUM, Team.Leadership.EXCEPTIONAL)
         );
     }

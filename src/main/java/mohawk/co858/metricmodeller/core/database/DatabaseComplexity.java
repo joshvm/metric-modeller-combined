@@ -6,11 +6,10 @@ public class DatabaseComplexity {
 
     public enum DatabaseComplexityFactor {
 
-        SIMPLE("Ordinary", .8),
-        ORDINARY("Low", .9),
-        MIDWAY("Midway", 1),
-        GREAT("Great", 1.1),
-        COMPLEX("Complex", 1.2);
+        BELOW("Below", .8),
+        STANDARD("Standard", .9),
+        MIDDLE("Middle", 1),
+        ULTIMATE("Ultimate", 1.1);
 
         public static final DatabaseComplexityFactor[] VALUES = values();
 
