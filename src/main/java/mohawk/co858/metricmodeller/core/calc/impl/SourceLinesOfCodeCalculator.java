@@ -14,7 +14,7 @@ public class SourceLinesOfCodeCalculator implements Calculator {
 
     @Override
     public double calculate(final Project project){
-        return langs(project) * Calculators.functionPoints().calculate(project);
+        return langs(project) * Calculators.adjustedFunctionPointCalculator().calculate(project);
     }
 
     public double langs(final Project project){
