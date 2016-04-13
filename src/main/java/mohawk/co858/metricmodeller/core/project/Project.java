@@ -74,7 +74,7 @@ public class Project {
     public static Project create(final int id, final String name){
         return new Project(id, name,
                 new LanguageUsages(),
-                new MetricMeasurements(),
+                new MetricMeasurements(0),
                 new FactorRatings(),
                 new ExpertiseCounts(),
                 new DatabaseComplexity(DatabaseComplexity.DatabaseComplexityFactor.MIDDLE),

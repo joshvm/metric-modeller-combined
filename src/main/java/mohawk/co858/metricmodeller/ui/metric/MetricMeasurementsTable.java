@@ -11,13 +11,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import javafx.util.converter.IntegerStringConverter;
 import mohawk.co858.metricmodeller.core.metric.MetricMeasurements;
@@ -39,6 +45,8 @@ public class MetricMeasurementsTable extends BorderPane {
 
     private TableView<MetricMeasurements.Entry> table;
 
+    private final Spinner<Integer> rawFunctionPointsBox;
+
     public MetricMeasurementsTable(final Project project){
         this.project = project;
 
@@ -49,9 +57,6 @@ public class MetricMeasurementsTable extends BorderPane {
             if(!opt.isPresent())
                 return;
             final MetricMeasurements.Entry entry = opt.get();
-            entry.count().addListener(
-                    (ob, o, n) -> System.out.println("new value: " + n)
-            );
             project.metricMeasurements().add(entry);
             table.getItems().add(entry);
         });
@@ -172,6 +177,23 @@ public class MetricMeasurementsTable extends BorderPane {
                 (ListChangeListener<MetricMeasurements.Entry>) c -> clearButton.setDisable(table.getItems().isEmpty())
         );
 
+        final Label functionPointsLabel = new Label("Raw Function Points:");
+        functionPointsLabel.setFont(Font.font("Verdana", FontWeight.NORMAL, 20));
+        functionPointsLabel.setTextAlignment(TextAlignment.CENTER);
+        functionPointsLabel.setAlignment(Pos.CENTER);
+
+        rawFunctionPointsBox = new Spinner<>();
+        rawFunctionPointsBox.setEditable(true);
+        rawFunctionPointsBox.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, Integer.MAX_VALUE, project.metricMeasurements().rawFunctionPoints().get()));
+        rawFunctionPointsBox.valueProperty().addListener(
+                (ob, o, n) -> project.metricMeasurements().rawFunctionPoints().set(n)
+        );
+
+        final HBox bottom = new HBox();
+        bottom.setPadding(new Insets(10, 0, 10, 0));
+        bottom.setSpacing(5);
+        bottom.getChildren().addAll(functionPointsLabel, rawFunctionPointsBox);
+
         final Label titleLabel = GlyphsDude.createIconLabel(FontAwesomeIcon.BAR_CHART, "Parameters", "32px", "24px", ContentDisplay.LEFT);
         titleLabel.setTextAlignment(TextAlignment.CENTER);
         titleLabel.setAlignment(Pos.CENTER);
@@ -183,5 +205,6 @@ public class MetricMeasurementsTable extends BorderPane {
 
         setTop(top);
         setCenter(table);
+        setBottom(bottom);
     }
 }

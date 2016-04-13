@@ -1,6 +1,5 @@
 package mohawk.co858.metricmodeller.ui;
 
-import de.jensd.fx.glyphs.GlyphsDude;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.application.Application;
@@ -10,7 +9,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
-import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -58,10 +56,10 @@ public class App extends Application {
                 }
         );
 
-        promptLabel = new Label("Click the New button to get started!");
+        promptLabel = new Label("Click the New button to create a project.\r\nClick the Import button to load a project from database.\r\nClick the Export button to save the project to database.");
         promptLabel.setTextAlignment(TextAlignment.CENTER);
         promptLabel.setAlignment(Pos.CENTER);
-        promptLabel.setFont(Font.font("Verdana", FontWeight.NORMAL, 30));
+        promptLabel.setFont(Font.font("Verdana", FontWeight.NORMAL, 25));
 
         mainPane = new BorderPane();
         mainPane.setPadding(new Insets(5));

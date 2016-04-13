@@ -2,6 +2,9 @@ package mohawk.co858.metricmodeller.ui;
 
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
 import java.util.Optional;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
@@ -21,6 +24,8 @@ public class ToolBar extends BorderPane {
     private final Button importButton;
     private final Button exportButton;
 
+    private final Button githubButton;
+
     public ToolBar(){
         newButton = GlyphsDude.createIconButton(FontAwesomeIcon.PLUS, "New", "24px", "16px", ContentDisplay.TOP);
         newButton.setOnAction(e -> {
@@ -37,15 +42,29 @@ public class ToolBar extends BorderPane {
 
         exportButton = GlyphsDude.createIconButton(FontAwesomeIcon.CLOUD_UPLOAD, "Export", "24px", "16px", ContentDisplay.TOP);
 
-        final HBox actions = new HBox();
-        actions.setSpacing(5);
-        actions.getChildren().addAll(newButton, importButton, exportButton, new Separator(Orientation.VERTICAL));
+        final HBox leftActions = new HBox();
+        leftActions.setSpacing(5);
+        leftActions.getChildren().addAll(newButton, importButton, exportButton, new Separator(Orientation.VERTICAL));
 
         final Label titleLabel = GlyphsDude.createIconLabel(FontAwesomeIcon.I_CURSOR, "Lying I's Metric Modeller", "32px", "24px", ContentDisplay.LEFT);
         titleLabel.setAlignment(Pos.CENTER);
         titleLabel.setTextAlignment(TextAlignment.CENTER);
 
-        setLeft(actions);
+        githubButton = GlyphsDude.createIconButton(FontAwesomeIcon.GITHUB, "GitHub", "24px", "16px", ContentDisplay.TOP);
+        githubButton.setOnAction(e -> {
+            try{
+                Desktop.getDesktop().browse(URI.create("https://github.com/joshvm/metric-modeller-combined"));
+            }catch(IOException e1){
+                e1.printStackTrace();
+            }
+        });
+
+        final HBox rightActions = new HBox();
+        rightActions.setSpacing(5);
+        rightActions.getChildren().addAll(githubButton);
+
+        setLeft(leftActions);
         setCenter(titleLabel);
+        setRight(rightActions);
     }
 }

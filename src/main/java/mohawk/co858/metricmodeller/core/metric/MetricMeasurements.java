@@ -46,10 +46,16 @@ public class MetricMeasurements {
         }
     }
 
+    private final SimpleObjectProperty<Integer> rawFunctionPoints;
     private final Map<Parameter, Entry> map;
 
-    public MetricMeasurements(){
+    public MetricMeasurements(final int rawFunctionPoints){
+        this.rawFunctionPoints = new SimpleObjectProperty<>(rawFunctionPoints);
         map = new HashMap<>();
+    }
+
+    public SimpleObjectProperty<Integer> rawFunctionPoints(){
+        return rawFunctionPoints;
     }
 
     public Map<Parameter, Entry> map(){
