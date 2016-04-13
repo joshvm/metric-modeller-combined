@@ -17,6 +17,6 @@ public class AdjustedFunctionPointCalculator implements Calculator {
     @Override
     public double calculate(Project project) {
         return  Calculators.functionPoints().calculate(project) *
-                Calculators.dbcf().calculate(project);
+                Calculators.dbcf().calculate(project) + project.metricMeasurements().rawFunctionPoints().getValue();
     }
 }
